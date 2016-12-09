@@ -1,0 +1,13 @@
+{
+  "api": {
+    "baseUrl":" http://staging1flutterwave.co:8080/pwc/rest"
+  },
+
+  "mongoDB":"",
+
+  "apikeys":{
+    "test_merchant_key": "tk_xZhHRi9WnY",
+    "test_api_key":"tk_XGrqbAiQvDkz6fEs8y1h"
+  }
+
+}

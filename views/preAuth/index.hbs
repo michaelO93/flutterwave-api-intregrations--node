@@ -1,0 +1,361 @@
+<div class="container">
+    <div class="masthead">
+        <h3 class="text-muted">Flutterwave API Integration ®™</h3>
+        <nav>
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a href="#home">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        href="#card_payment" aria-haspopup="true" aria-expanded="false">Tokenize Card</a>
+                </li>
+                <li><a href="#preauthorize">PreAuthorize</a></li>
+                <li><a href="#bvn_verification">Via BVN</a></li>
+                <li><a href="#card_bin_check">Card BIN</a></li>
+                <li><a href="/payApi">Pay APIs</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="loadingdiv" style="text-align: center; margin-top: 40px;"><div class="ld-outer"><div class="ld-inner"><img src="/images/preloader.gif"><br><br><p><em>Please wait. . .</em></p></div></div></div>
+
+
+    <div class="tab-content">
+
+        <!--home-->
+        <div id="home" class="tab-pane fade in active">
+            <div class="row text-center" style="padding-top: 40px;">
+                <h3>WITH FLUTTERWAVE ®™</h3>
+                <div class="click-to-copy" id="click-to-copy" style="cursor: pointer">
+                    <span id="copy">PAYMENT IS BAE!</span>
+                    <span class="Label" data-clipboard-action="copy" data-clipboard-target="#copy" style="display: none">Copy</span>
+                </div>
+
+            </div>
+        </div>
+        <!--home-->
+
+        <!--card-payment-->
+        <div id="card_payment" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Tokenize Card</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/card/tokenize" class="form-card form-group" method="POST" >
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="name" class="control-label">Card Number</label>
+                                    <input type="text" class="form-control" name="cardno" id="cardno"
+                                           placeholder="Card Number"/>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4 col-md-12">
+                                        <div class="form-group">
+                                            <label for="month" class="control-label">Month</label>
+                                            <input type="text" class="form-control" name="expirymonth" id="month" placeholder="MM"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-md-12">
+                                        <div class="form-group">
+                                            <label for="year" class="control-label">Year</label>
+                                            <input type="text" class="form-control" name="expiryyear" id="year" placeholder="YY"/>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" class="form-control" placeholder="" id="custid" name="custid" value="michaelOnyeforo1234567890">
+                                    <input type="hidden" class="form-control" placeholder="" id="responseUrl" name="responseUrl" >
+
+
+
+                                    <div class="col-md-4 col-md-12">
+                                        <div class="form-group">
+                                            <label for="cvc" class="control-label">CVV</label>
+                                            <input type="text" class="form-control" name="cvc" id="cvc" placeholder="CVC"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <select class="form-control" name="country" required="">
+                                        <option selected="">Country</option>
+                                        <option value="NG">Nigeria</option>
+                                        <option value="GH">Ghana</option>
+                                        <option value="KE">Kenya</option>
+                                        <option value="US">USA</option>
+                                        <option value="UK">UK</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirm" class="control-label">Validation Method</label>
+
+                                    <select class="form-control" name="validateoption" required="">
+                                        <option selected="">Validation Option</option>
+                                        <option value="SMS">SMS</option>
+                                        <option value="VOICE">VOICE</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="confirm" class="control-label">Authentication Method</label>
+                                    <select class="form-control" id="authmodel" name="authmodel">
+                                        <option value="">Select Authentication Method</option>
+                                        <option value="BVN">BVN</option>
+                                        <option value="NOAUTH">No Authentication</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield" name="">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield" name="_csrf">
+                                </div>
+
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--card-payment-->
+
+        <!--account payment-->
+        <div id="preauthorize" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Pre-authorize</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/card/preauth" class="form-card form-group" method="POST" >
+                            <div class="row">
+
+                                <div class="form-group">
+                                    <label for="amount" class="control-label">Amount</label>
+                                    <input type="text" class="form-control" name="amount" id="amount"
+                                           placeholder="Enter amount"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="country2" required="">
+                                        <option selected="">Country</option>
+                                        <option value="NG">Nigeria</option>
+                                        <option value="GH">Ghana</option>
+                                        <option value="KE">Kenya</option>
+                                        <option value="US">USA</option>
+                                        <option value="UK">UK</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="currency2" required="">
+                                        <option value="" selected="" disabled="">Currency</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield" name="">
+                                </div>
+
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--account payment-->
+
+        <!--bvn verification-->
+        <div id="bvn_verification" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">BVN Verification</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/checkBVN" class="form-card form-group" method="POST" >
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="bvn" class="control-label">BVN</label>
+                                    <input type="text" class="form-control" name="bvn" id="bvn"
+                                           placeholder="Enter BVN "/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirm" class="control-label">Verification Method</label>
+
+                                    <select class="form-control" id="authmodel" name="authmodel">
+                                        <option value="">Select Verification Method</option>
+                                        <option value="SMS">SMS</option>
+                                        <option value="VOICE">Voice Call</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--bvn verification-->
+
+        <!--card bin verification-->
+        <div id="card_bin_check" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Card BIN Verification</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="#" id="cardbin" class="form-card form-group" method="POST" >
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="bvn" class="control-label">First 6 digits</label>
+                                    <input type="text" class="form-control" name="card6" id="card6"
+                                           placeholder="Enter first 6 digits of card number"/>
+                                </div>
+
+                                <input type="hidden" value="test" name="platform">
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit</button>
+                                </div>
+
+                                <div class="info text-center">
+                                    <h3 class="text-center">Card Information</h3>
+                                    <div id="card-information"><p>Your card information will appear</p></div>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--card bin verification-->
+
+
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    createtooltip();
+    $(document).ready(function () {
+        $('.loadingdiv').hide();
+        $(".nav-pills a").click(function () {
+            $(this).tab('show');
+        });
+
+        function spin() {
+            $('.loadingdiv').show()
+        }
+
+        function unspin() {
+            $('.loadingdiv').hide();
+        }
+
+
+        $('#cardbin').on('submit',function (e) {
+            e.preventDefault();
+
+            var card6 = $("input[name='card6']").val(),
+                    platform = $("input[name='platform']").val();
+
+            if (card6 == '' || card6.length != 6){
+                swal("Notice","Oga enter the first 6 digit of your card","error");
+            }
+            else{
+                spin();
+                $.ajax({
+                    type:'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    url:'http://staging1flutterwave.co:8080/pwc/rest/fw/check',
+                    dataType:'json',
+                    data:JSON.stringify({
+                        card6: card6
+                    }),
+                    success:function (response) {
+                        if(response.data.responseCode == '00'){
+                            unspin();
+                            $('#card-information').html('<h5>'+response.data.cardName+'<br><small><strong>CARD NAME</strong></small></h5><h5 class="m-t-20">'+response.data.country+'<br><small><strong>COUNTRY</strong></small></h5>')
+                        }else{
+                            unspin();
+                            swal("Notice",response.data.responseMessage,"error");
+                        }
+                    },
+                    error: function(){
+                        unspin();
+                        swal("Notice", "Unable to connect to web service. Something is not right here! Try again", "error");
+                    }
+                })
+            }
+        })
+
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.click-to-copy').hover(function() {
+            $('.Label', $(this)).slideToggle(100, 'linear');
+            $('.Label').removeClass('hidden');
+        });
+
+        var copying = document.querySelector('.Label');
+        copying.addEventListener('click',function (e) {
+            new Clipboard('.Label');
+            showtooltip(e)
+        });
+
+    });
+
+
+</script>

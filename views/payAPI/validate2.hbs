@@ -1,0 +1,26 @@
+<div class="container" style="max-width: 330px; margin: 0 auto">
+    <form action="/pay/validateAccountStep2" method="POST" class="form-card">
+        <h2 class="form-card-heading">Validate ACCOUNT - Step 2</h2>
+        <p>{{message.responsemessage}}</p>
+        <input type="text" class="form-control" placeholder="Enter OTP" name="otp" required="">
+        <br>
+        <div class="form-group">
+            <select class="form-control" name="otptype">
+                <option selected="">Otptype</option>
+                <option value="ACCOUNT_DEBIT">Account</option>
+                <option value="PHONE_OTP">Phone</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="country">
+                <option selected="">Country</option>
+                <option value="NG">Nigeria</option>
+                <option value="KE">Kenya</option>
+            </select>
+        </div>
+        <div><p><em>Remember: you don't have to choose the same 'otytype' again! Choose the other</em></p></div>
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Validate Account">
+        <input type="hidden" name="_csfr" value="null">
+    </form>
+</div>

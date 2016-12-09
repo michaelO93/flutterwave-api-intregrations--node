@@ -1,0 +1,400 @@
+<div class="container">
+    <div class="masthead">
+        <h3 class="text-muted">Flutterwave API Integrations ®™</h3>
+        <nav>
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a href="#home">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        href="#link" aria-haspopup="true" aria-expanded="false">Link Account</a>
+                </li>
+                <li><a href="#unlink">Unlink Account</a></li>
+                <li><a id="linkedAccounts" href="">Get linked Accounts</a></li>
+                <li><a href="#disburse">Send Money</a></li>
+                <li><a href="#card_bin_check">Get Transaction Status</a></li>
+                <li><a href="/">Back</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="loadingdiv" style="text-align: center; margin-top: 40px;">
+        <div class="ld-outer">
+            <div class="ld-inner"><img src="/images/preloader.gif"><br><br>
+                <p><em>Please wait. . .</em></p></div>
+        </div>
+    </div>
+
+
+    <div class="tab-content">
+
+        <!--home-->
+        <div id="home" class="tab-pane fade in active">
+            <div class="row text-center" style="padding-top: 40px;">
+                <h3  id="head">WITH FLUTTERWAVE ®™</h3>
+                <h4 id="p">PAYMENT IS BAE!</h4>
+            </div>
+        </div>
+        <!--home-->
+
+        <!--link-account-->
+        <div id="link" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Link Account</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/pay/linkaccount" class="form-card form-group" method="POST">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="accountnumber" class="control-label">Account Number</label>
+                                    <input type="text" class="form-control" name="accountnumber" id="accountnumber"
+                                           placeholder="Enter account number"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="country">
+                                        <option selected="">Country</option>
+                                        <option value="NG">Nigeria</option>
+                                        <option value="KE">Kenya</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield" name="">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield"
+                                           name="_csrf">
+                                </div>
+
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--card-payment-->
+
+        <!--account payment-->
+        <div id="unlink" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Unlink Account</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/pay/unlinkaccount" class="form-card form-group" method="POST">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="accountnumber" class="control-label">Account Number</label>
+                                    <input type="text" class="form-control" name="accountnumber" id="accountnumber"
+                                           placeholder="Enter account number"/>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield" name="">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield"
+                                           name="_csrf">
+                                </div>
+
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--account payment-->
+
+        <!--bvn verification-->
+        <div id="disburse" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Send Money</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/pay/disburse" class="form-card form-group" method="POST">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="recipientname" class="control-label">Recipient's name</label>
+                                    <input type="text" class="form-control" name="recipientname" id="recipientname"
+                                           placeholder="Enter recipient name"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="recipientaccount" class="control-label">Recipient's Account</label>
+                                    <input type="text" class="form-control" name="recipientaccount"
+                                           id="recipientaccount"
+                                           placeholder="Enter recipient account"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sendername" class="control-label">Sender's name</label>
+                                    <input type="text" class="form-control" name="sendername" id="sendername"
+                                           placeholder="Enter your name"/>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4 col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control" name="country1" required="">
+                                                <option selected="">Country</option>
+                                                <option value="NG">Nigeria</option>
+                                                <option value="GH">Ghana</option>
+                                                <option value="KE">Kenya</option>
+                                                <option value="US">USA</option>
+                                                <option value="UK">UK</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control" name="currency1" required="">
+                                                <option value="" selected="" disabled="">Currency</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="amount" id="amount"
+                                                   placeholder="Enter amount"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="form-control" placeholder="" id="custid" name="custid"
+                                       value="michaelOnyeforo1234567890">
+                                <input type="hidden" class="form-control" placeholder="" id="responseUrl"
+                                       name="responseUrl">
+
+
+                                <div class="form-group">
+
+                                    <select class="form-control" name="destbankcode">
+                                        <option value="">Select Destination/Recipient Bank</option>
+                                        <option value="044">Access Bank</option>
+                                        <option value="323">Access Money</option>
+                                        <option value="401">Aso Savings Andamp; Loans</option>
+                                        <option value="317">Cellulant</option>
+                                        <option value="303">Chamsmobile</option>
+                                        <option value="023">Citibank</option>
+                                        <option value="559">Coronation Merchant Bank</option>
+                                        <option value="551">Covenant Microfinance Bank</option>
+                                        <option value="063">Diamond Bank</option>
+                                        <option value="302">Eartholeum</option>
+                                        <option value="050">Ecobank Plc</option>
+                                        <option value="307">Ecomobile</option>
+                                        <option value="084">Enterprise Bank</option>
+                                        <option value="306">Etranzact</option>
+                                        <option value="309">Fbnmobile</option>
+                                        <option value="314">Fet</option>
+                                        <option value="070">Fidelity Bank</option>
+                                        <option value="318">Fidelity Mobile</option>
+                                        <option value="011">First Bank Of Nigeria</option>
+                                        <option value="214">First City Monument Bank</option>
+                                        <option value="501">Fortis Microfinance Bank</option>
+                                        <option value="308">Fortismobile</option>
+                                        <option value="601">Fsdh</option>
+                                        <option value="058">Gtbank Plc</option>
+                                        <option value="315">Gtmobile</option>
+                                        <option value="324">Hedonmark</option>
+                                        <option value="030">Heritage</option>
+                                        <option value="301">Jaiz Bank</option>
+                                        <option value="402">Jubilee Life Mortgage Bank</option>
+                                        <option value="082">Keystone Bank</option>
+                                        <option value="313">Mkudi</option>
+                                        <option value="325">Moneybox</option>
+                                        <option value="999">Nip Virtual Bank</option>
+                                        <option value="552">Npf Microfinance Bank</option>
+                                        <option value="327">Pagatech</option>
+                                        <option value="526">Parralex</option>
+                                        <option value="329">Payattitude Online</option>
+                                        <option value="305">Paycom</option>
+                                        <option value="311">Readycash (parkway)</option>
+                                        <option value="403">Safetrust Mortgage Bank</option>
+                                        <option value="076">Skye Bank</option>
+                                        <option value="221">Stanbic Ibtc Bank</option>
+                                        <option value="304">Stanbic Mobile Money</option>
+                                        <option value="068">Standard Chartered Bank</option>
+                                        <option value="232">Sterling Bank</option>
+                                        <option value="326">Sterling Mobile</option>
+                                        <option value="100">Suntrust Bank</option>
+                                        <option value="328">Tagpay</option>
+                                        <option value="319">Teasymobile</option>
+                                        <option value="990">Test Bank</option>
+                                        <option value="523">Trustbond</option>
+                                        <option value="032">Union Bank</option>
+                                        <option value="033">United Bank For Africa</option>
+                                        <option value="215">Unity Bank</option>
+                                        <option value="320">Vtnetworks</option>
+                                        <option value="035">Wema Bank</option>
+                                        <option value="057">Zenith Bank</option>
+                                        <option value="322">Zenithmobile</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield" name="">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" placeholder="" id="authfield"
+                                           name="_csrf">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="trans_desc" class="cols-sm-2 control-label">Transaction
+                                        Description</label>
+                                    <input type="text" class="form-control" name="narration" id="trans_desc"
+                                           placeholder="Enter the purpose of transaction"/>
+                                </div>
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--bvn verification-->
+
+        <!--get transaction status-->
+        <div id="card_bin_check" class="tab-pane fade">
+            <div class="row main">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <h1 class="title">Get Transaction Status</h1>
+                        <hr/>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="main-form" style="max-width: 330px; margin: 0 auto;">
+                        <form action="/pay/getTransactionStatus" id="cardbin" class="form-card form-group" method="POST">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="uniquereference" class="control-label">Transaction Reference</label>
+                                    <input type="text" class="form-control" name="uniquereference" id="uniquereference"
+                                           placeholder="Enter Unique Reference"/>
+                                </div>
+
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Submit
+                                    </button>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--get transaction status-->
+
+
+    </div>
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('.loadingdiv').hide();
+        $(".nav-pills a").click(function () {
+            $(this).tab('show');
+        });
+
+        function spin() {
+            $('.loadingdiv').show();
+        }
+
+        function unspin() {
+            $('.loadingdiv').hide();
+        }
+        var merchant = 'tk_xZhHRi9WnY';
+        $('#linkedAccounts').on('click',function (e) {
+            e.preventDefault();
+            spin();
+            $.ajax({
+                dataType:'json',
+                url:'http://staging1flutterwave.co:8080/pwc/rest/pay/getlinkedaccounts',
+                type:'POST',
+                data: JSON.stringify( {merchantid: merchant}),
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                success:function (response) {
+                    if(response.data.responsecode == '00'){
+                        unspin();
+                        $('#head').html('successfully fetched linked accounts');
+                        var accts = response.data.linkedaccounts;
+                        var account_numbers = accts.map( function(acct){ return acct.accountnumber });
+                        account_numbers.forEach(function (element) {
+                            $('#head').append('<br><div>'+element+'</div>');
+                        });
+                            $('#p').hide();
+                    }else{
+                        unspin();
+                        swal("Notice",response.data.responsemessage,"error");
+                    }
+                },
+                error:function (error) {
+                    if(error) swal("Notice","Something happened. Try again later","error");
+                    unspin();
+                }
+            })
+        })
+
+    });
+
+
+
+</script>
+
+
