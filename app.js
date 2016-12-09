@@ -8,7 +8,6 @@ var session = require('express-session');
 var _ = require('underscore');
 var mongoose = require('mongoose');
 var chalk  = require('chalk');
-var autoIncrement = require('mongoose-auto-increment');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
